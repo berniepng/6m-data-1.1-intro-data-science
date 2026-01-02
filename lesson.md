@@ -1,22 +1,85 @@
-# **🏃 Class 2: Core Sprint Activities**
+# **🎓 Lesson 1.1: The Data Landscape (3-Hour Flipped Classroom)**
 
-Instructions:  
-This document contains the 20-minute hands-on exercises for Sprints 1, 2, and 3\. We will complete these sections together in class.
+## **Session Overview**
 
-## **🛤️ Sprint 1: The Data Pipeline**
+* **Section 1 (60 min):** Definitions & The Hierarchy of Needs.  
+* **Section 2 (60 min):** The Data Pipeline & Data Structures.  
+* **Section 3 (60 min):** Ethics, Bias, and the "Garbage In, Garbage Out" Rule.
 
-**Goal:** Map a real-world product to the 4 stages of data: *Collection* $\\to$ *Cleaning* $\\to$ *Analysis* $\\to$ *Visualization*.
+## **🏃 Section 1: The Hierarchy of Insights (60 min)**
 
-### **🧠 Theory Recap (5 mins)**
+### **Learning Objective**
 
-* **Collection:** Where does the raw data come from? (Sensors, forms, logs).  
-* **Cleaning:** Removing errors, duplicates, and nulls. (The "Janitor work").  
-* **Analysis:** Finding patterns, aggregations, and predictions. (The "Brain").  
-* **Visualization:** Presenting the insight. (Dashboards, Alerts, Charts).
+Explain the difference between Data Analytics, Data Science, and AI.
 
-### **🛠️ Hands-On Activity: "The Smart Watch Breakdown" (20 mins)**
+### **Theory Recap (10 min)**
 
-**Scenario:** You are a Data Scientist at Fitbit/Apple/Garmin. Your goal is to show a user their "Sleep Quality Score" every morning.
+* **Andrew Ng Style Intuition:** Imagine a kitchen.  
+  * **Data Analytics** is checking the fridge to see what's left and writing a report on what was eaten (Historical).  
+  * **Data Science** is using that list to predict what ingredients you'll need for next week's dinner (Predictive).  
+  * **AI** is a robot chef that sees the fridge is empty and orders the groceries for you (Automated Action).
+
+### **Workshop: "The Company Diagnostic" (40 min)**
+
+**Discussion:** 
+
+* "If a CEO says 'I want to build a GPT-4 for my company' but all their data is in paper files, where on the hierarchy are they failing?"
+
+* "If we scanned those papers into PDFs, would that be enough to build an AI tomorrow? Or is there still a 'Cleaning' and 'Analysis' step missing?"
+
+**Activity:**
+
+1. **The Matrix:** Provide learners with 5 scenarios (e.g., A bank detecting fraud, a manager making a pivot table, a self-driving car braking).
+
+2. **The Python Peek (Code Demo):** Show how we check data types to distinguish between "Reporting" and "Modeling."
+
+```python
+
+# Trainer Demo: How we see data vs How the computer sees it  
+import pandas as pd
+
+# A simple 'Historical' dataset (Analytics)  
+data = {'Month': ['Jan', 'Feb'], 'Sales': [100, 150]}  
+df = pd.DataFrame(data)  
+print("Analytics: What happened?")  
+print(df)
+
+# Predicting (Data Science)
+# Calculate the month-over-month growth rate
+# Sales for Jan: df['Sales'].iloc[0]
+# Sales for Feb: df['Sales'].iloc[1]
+
+growth_rate = (df['Sales'].iloc[1] - df['Sales'].iloc[0]) / df['Sales'].iloc[0]
+print(f"Month-over-month growth rate: {growth_rate:.2%}")
+
+# Predict next month's sales (March) based on February's sales and the growth rate
+predicted_sales_march = df['Sales'].iloc[1] * (1 + growth_rate)
+
+print(f"\nPredicted sales for March: {predicted_sales_march:.2f}")
+```
+
+
+
+### **Q\&A & Reflection (10 min)**
+
+* **Beginner Hurdle:** "Does AI replace Data Science?" (No, AI is the application; DS is the discovery phase).  
+* **Business Case:** How Netflix uses Analytics for billing but AI for recommendations.
+
+## **🛤️ Section 2: The Data Highway (60 min)**
+
+### **Learning Objective**
+
+Identify the 4 stages of a Data Pipeline and distinguish between Structured/Unstructured data.
+
+### **Theory Recap (10 min)**
+
+* **The Pipeline:** Collection ➔ Cleaning ➔ Analysis ➔ Visualization.  
+* **Structured vs. Unstructured:** \* **Structured:** Think of an Egg Carton (Everything has a specific slot/cell).  
+  * **Unstructured:** Think of a bag of groceries (Items are all mixed up; you have to sort them yourself).
+
+### **🛠️ Hands-On Activity: "The Smart Watch Data Pipeline" (20 mins)**
+
+**Scenario:** You are designing the data flow for a "Sleep Tracker" app.
 
 **Task:** Fill in the blanks below with your group.
 
@@ -31,15 +94,6 @@ This document contains the 20-minute hands-on exercises for Sprints 1, 2, and 3\
 
 If the "Cleaning" stage fails (e.g., we count the time the watch was on the nightstand as "Deep Sleep"), how does that ruin the "Visualization"?
 
-## **📄 Sprint 2: Types of Data**
-
-**Goal:** Distinguish between Structured and Unstructured data.
-
-### **🧠 Theory Recap (5 mins)**
-
-* **Structured Data:** Fits in rows and columns (Excel, SQL). Highly organized, easy to search.  
-* **Unstructured Data:** No predefined format (Images, Emails, Audio, Video). Hard to search, requires complex processing (AI).
-
 ### **🛠️ Hands-On Activity: "Data Binning" (20 mins)**
 
 **Task 1:** Categorize the following data points from a Hospital System into "Structured" or "Unstructured".
@@ -52,19 +106,27 @@ If the "Cleaning" stage fails (e.g., we count the time the watch was on the nigh
 6. Audio recording of a patient consultation  
 7. JSON log from a heart monitor ({"bpm": 80, "time": "12:00"}) *(Tricky\! Discuss)*
 
-Task 2 (AI Assistant):  
-Open NotebookLM and ask:  
+**Question:**
 "How can I convert Unstructured text (like a doctor's note) into Structured data? Give me an example."
 
-## **⚖️ Sprint 3: The Role of Ethics**
+### **Q\&A & Reflection (10 min)**
 
-**Goal:** Understand how "Clean Data" can still be "Biased Data".
+* **Beginner Hurdle:** "Is JSON structured or unstructured?" (It's Semi-structured\! The 'In-between' state).  
+* **Business Case:** Why 80% of a Data Scientist's time is spent in the "Cleaning" stage.
 
-### **🧠 Theory Recap (5 mins)**
+## **⚖️ Section 3: The Conscious Algorithm (60 min)**
+
+### **Learning Objective**
+
+Recognize potential ethical biases in data collection. Understand how "Clean Data" can still be "Biased Data".
+
+### **Theory Recap (10 min)**
 
 * **Selection Bias:** The data you collected doesn't represent the whole world.  
 * **Historical Bias:** The data reflects past prejudices (e.g., hiring data from the 1970s).  
 * **Garbage In, Garbage Out:** Perfect code cannot fix broken data.
+
+### **Workshop: "The Hiring Bot Post-Mortem" (40 min)**
 
 ### **🛠️ Hands-On Activity: "The Hiring Bot" (20 mins)**
 
@@ -82,3 +144,7 @@ You build an AI to screen resumes for a tech company. You train it on the compan
 
 Output:  
 Write a 1-sentence "Warning Label" that should be placed on this dataset before any Data Scientist uses it.
+### **Q\&A & Reflection (10 min)**
+
+* **Beginner Hurdle:** "Can we ever have 100% unbiased data?" (Likely no, but we can have 'Aware' data).  
+* **Business Case:** The cost of a "PR Nightmare" when AI goes wrong (e.g., facial recognition failures).
