@@ -24,5 +24,5 @@ By the end of this session, you will be able to:
 
 ## **📂 Resources**
 
-* [Pre-Study Guide](./pre-class.md)  
+* [Pre-Class](./pre-class.md)  
 * [Netflix Case Study](./case_study.md)
