@@ -74,7 +74,8 @@ Identify the 4 stages of a Data Pipeline and distinguish between Structured/Unst
 ### **Theory Recap (10 min)**
 
 * **The Pipeline:** Collection ➔ Cleaning ➔ Analysis ➔ Visualization.  
-* **Structured vs. Unstructured:** \* **Structured:** Think of an Egg Carton (Everything has a specific slot/cell).  
+* **Structured vs. Unstructured:**
+  * **Structured:** Think of an Egg Carton (Everything has a specific slot/cell).  
   * **Unstructured:** Think of a bag of groceries (Items are all mixed up; you have to sort them yourself).
 
 ### **🛠️ Hands-On Activity: "The Smart Watch Data Pipeline" (20 mins)**
